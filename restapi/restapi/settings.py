@@ -25,7 +25,7 @@ SECRET_KEY = ')r2g1-o+p&m_y(ob8eq#0ye+t*xp@x^8@pp$5r&1jd(y-x!b_i'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 LOGGING = {
     'version': 1,
@@ -44,7 +44,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '/home/riozo/Documents/babymall/igerd_test/django_restapi_sample/test-restapi-debug.log',
+            'filename': '/home/restapi/test-restapi-debug.log',
             'formatter': 'verbose'
         },
         'mail_admins': {
@@ -175,3 +175,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
