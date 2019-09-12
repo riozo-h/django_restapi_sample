@@ -25,7 +25,7 @@ class ProductViewSet(viewsets.ModelViewSet):
         if serializer.is_valid():
             serializer.save()
             product = Product.objects.get(id=serializer.data['id'])
-            product.category_name = category
+            product.category = category
             product.save()
             return Response(self.serializer_class(product).data,status=200)
         else:

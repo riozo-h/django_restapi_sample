@@ -19,7 +19,7 @@ class ProductSerializer(serializers.ModelSerializer):
         # fields = '__all__'
     def get_category(self,obj):
         self.context['dynamic_fields'] = ['id', 'name','name_en']
-        serializer = CategorySerializer(obj.category_name,partial=True,context=self.context)
+        serializer = CategorySerializer(obj.category,partial=True,context=self.context)
         return serializer.data
     # def get_name(self,obj):
     #     return obj.name

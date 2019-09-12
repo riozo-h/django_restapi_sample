@@ -25,7 +25,7 @@ class Product(Skeleton):
 
     )
 
-    category_name = models.ForeignKey(Category, related_name='category',on_delete=models.PROTECT,blank=True, null=True)
+    category = models.ForeignKey(Category, related_name='products',on_delete=models.PROTECT,blank=True, null=True)
     name = models.CharField(max_length=40,null=False,verbose_name=_("name"),default='None')
     price = models.DecimalField(decimal_places=2, max_digits=20, verbose_name=_("price"))
     rate = models.CharField(max_length=40, default=FINE, choices=RATES, verbose_name=_("rate"))
