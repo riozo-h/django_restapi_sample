@@ -3,21 +3,14 @@ from django.utils.translation import ugettext_lazy as _
 from datetime import datetime
 # Create your models here.
 class Skeleton(models.Model):
-    creation_time = models.DateTimeField(editable=False, verbose_name=_("creation time"))
-    modification_time = models.DateTimeField(default=None, editable=False, verbose_name=_("modification time"))
+    creation_time = models.DateTimeField(editable=False, verbose_name=_("creation time"),auto_now_add=True)
+    modification_time = models.DateTimeField( editable=False, verbose_name=_("modification time"),auto_now=True)
 
     def __str__(self):
         return unicode(self.pk)
 
     def __unicode__(self):
         return self.__str__()
-
-    def save(self, *args, **kwargs):
-        ''' On save, update timestamps '''
-        if not self.creation_time:
-            self.creation_time = datetime.now()
-        self.modification_time = datetime.now()
-        return super(Skeleton, self).save(*args, **kwargs)
 
     class Meta:
         abstract = True
