@@ -18,6 +18,8 @@ restapi/core/migrations
 restapi/user/migrations
 restapi/product/migrations
 restapi/cart/migrations
+restapi/static
+
 
 
 
