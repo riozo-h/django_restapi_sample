@@ -5,8 +5,10 @@ services:
   restapi:
     build: ./restapi
     container_name: restapi
-    command : 'gunicorn restapi.wsgi:application -b 0.0.0.0:8000'
     ports:
       - "8000:8000"
     volumes:
       - ./restapi:/home/restapi
+      - ./restapi/run.sh:/usr/local/bin/run.sh
+    command : bash -c "run.sh"
+      # - run.sh
