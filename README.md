@@ -1,11 +1,17 @@
 # django_restapi_sample
 A simple Django REST-API E Commerce application
 
-stack : Django + djangorestframework + sqlite3 + gunicorn
+Stack :
+  - Django
+  - djangorestframework
+  - sqlite3
+  - gunicorn
 
-requirements: docker,dockercompose
+Requirements:
+  - docker
+  - dockercompose
 
-deploy method: Dockerization
+Run the command below to start application
 ```bash
 docker-compose up
 ```
