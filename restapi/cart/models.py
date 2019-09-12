@@ -15,7 +15,6 @@ class Cart(Skeleton):
     items =  models.ManyToManyField(
         Product,
         blank=True,
-        null=True,
         related_name='product_items',
         verbose_name=_("cart items")
     )
