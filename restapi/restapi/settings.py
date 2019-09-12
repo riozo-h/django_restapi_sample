@@ -27,6 +27,50 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': '/home/riozo/Documents/babymall/igerd_test/django_restapi_sample/test-restapi-debug.log',
+            'formatter': 'verbose'
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'include_html': True,
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'level': 'ERROR',
+            'handlers': ['console', 'file'],
+            'propagate': False,
+        },
+        'django': {
+            'level': 'ERROR',
+            'handlers': ['console', 'file', 'mail_admins'],
+            'propagate': False,
+        },
+        'debug': {
+            'level': 'DEBUG',
+            'handlers': ['file'],
+            'propagate': False,
+        },
+    },
+}
 
 # Application definition
 

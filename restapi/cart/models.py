@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User, Group
 from core.models import Simple, Skeleton
 from django.conf import settings
+from product.models import Product
 # Create your models here.
 
 class Cart(Skeleton):
@@ -12,7 +13,7 @@ class Cart(Skeleton):
                              on_delete=models.PROTECT, verbose_name=_("user"))
     total_price = models.DecimalField(decimal_places=2, max_digits=20, default=0, verbose_name=_("price"))
     items =  models.ForeignKey(
-        'product.Product',
+        Product,
         blank=True,
         null=True,
         related_name='product_items',
