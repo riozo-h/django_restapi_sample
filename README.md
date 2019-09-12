@@ -1,5 +1,5 @@
 # django_restapi_sample
-A simple Django REST-API User,Product,Cart application
+A simple Django REST-API E Commerce application
 
 stack : Django + djangorestframework + sqlite3 + gunicorn
 
