@@ -12,12 +12,11 @@ class Cart(Skeleton):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True, related_name='cart_set',
                              on_delete=models.PROTECT, verbose_name=_("user"))
     total_price = models.DecimalField(decimal_places=2, max_digits=20, default=0, verbose_name=_("price"))
-    items =  models.ForeignKey(
+    items =  models.ManyToManyField(
         Product,
         blank=True,
         null=True,
         related_name='product_items',
-        on_delete=models.CASCADE,
         verbose_name=_("cart items")
     )
     def __str__(self):
