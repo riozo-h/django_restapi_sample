@@ -1,0 +1,12 @@
+version: '3'
+
+
+services:
+  restapi:
+    build: ./restapi
+    container_name: restapi
+    command : 'gunicorn restapi.wsgi:application -b 0.0.0.0:8000'
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./restapi:/home/restapi
